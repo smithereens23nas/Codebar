@@ -48,12 +48,7 @@ class Workshop():
             skills = []
             skills.append({instructor.skills})
             print(f"{idx + 1}. {instructor.fullname} - {instructor.skills} - {instructor.bio}")
-            
-        # self.print_students()
-        
-    # def print_students(self):
-    #     for i in self.student:
-    #         print(vars(i['fullname']))
+
     
 workshop = Workshop("12/03/2014", "Shutl")
 
