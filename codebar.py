@@ -1,3 +1,6 @@
+from operator import indexOf
+
+
 class Member:
     def __init__(self, fullname):
         self.fullname = fullname
@@ -38,11 +41,19 @@ class Workshop():
     
     def print_details(self):
         print(f"Workshop details: {self.date}, {self.subject}")
-        self.print_students()
+        for idx, student in enumerate(self.student):
+            print(f"{idx + 1}. {student.fullname} - {student.reason}")
+        print("Instructors") 
+        for idx, instructor in enumerate(self.instructor):
+            skills = []
+            skills.append({instructor.skills})
+            print(f"{idx + 1}. {instructor.fullname} - {instructor.skills} - {instructor.bio}")
+            
+        # self.print_students()
         
-    def print_students(self):
-        for i in self.student:
-            print(vars(i['fullname']))
+    # def print_students(self):
+    #     for i in self.student:
+    #         print(vars(i['fullname']))
     
 workshop = Workshop("12/03/2014", "Shutl")
 
@@ -59,4 +70,3 @@ workshop.add_participant(lena)
 workshop.add_participant(vicky)
 workshop.add_participant(nicole)
 workshop.print_details()
-    
