@@ -17,10 +17,11 @@ class Instructor(Member):
     def __init__(self, fullname, bio):
         super().__init__(fullname)
         self.bio = bio
-        self.skills = []
+        self.skills = ''
         
     def add_skill(self, skill):
-        self.skills.append(skill)
+        # self.skills.append(skill)
+        self.skills += skill
         
 class Workshop():
     def __init__(self, date, subject):
