@@ -17,11 +17,11 @@ class Instructor(Member):
     def __init__(self, fullname, bio):
         super().__init__(fullname)
         self.bio = bio
-        self.skills = ''
+        self.skills = []
         
     def add_skill(self, skill):
-        # self.skills.append(skill)
-        self.skills += skill
+        self.skills.append(skill)
+        # self.skills += skill
         
 class Workshop():
     def __init__(self, date, subject):
@@ -41,14 +41,19 @@ class Workshop():
             
     
     def print_details(self):
-        print(f"Workshop details: {self.date}, {self.subject}")
-        for idx, student in enumerate(self.student):
-            print(f"{idx + 1}. {student.fullname} - {student.reason}")
-        print("Instructors") 
-        for idx, instructor in enumerate(self.instructor):
-            skills = []
-            skills.append({instructor.skills})
-            print(f"{idx + 1}. {instructor.fullname} - {instructor.skills} - {instructor.bio}")
+        print(f"Workshop - {self.date} - {self.subject}")
+        print("\nStudents")
+        for i, student in enumerate(self.student, 1):
+            print(f"{i}. {student.fullname} - {student.reason}")
+        print("\nInstructors")
+        for i, instructor in enumerate(self.instructor, 1):
+            skills_string = ""
+            for j, skill in enumerate(instructor.skills, 1):
+                if j == len(instructor.skills):
+                    skills_string += skill
+                else:
+                    skills_string += skill + ", "
+            print(f"{i}. {instructor.fullname} - {skills_string}\n   {instructor.bio}")
 
     
 workshop = Workshop("12/03/2014", "Shutl")
